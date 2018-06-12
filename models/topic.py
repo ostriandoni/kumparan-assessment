@@ -2,6 +2,7 @@ from datetime import datetime
 
 topic = {
     'resource_methods': ['GET', 'POST', 'DELETE'],
+    'item_methods':  ['GET', 'DELETE'],
     'schema': {
         'createdAt': {
             'type': 'datetime',
@@ -19,10 +20,12 @@ topic = {
             'type': 'dict',
             'schema': {
                 'latest': {
-                    'type': 'list'
+                    'type': 'list',
+                    'default': []
                 },
                 'popular': {
-                    'type': 'list'
+                    'type': 'list',
+                    'default': []
                 }
             },
         }
