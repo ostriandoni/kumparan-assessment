@@ -1,0 +1,9 @@
+test_name: Make sure server delete a topic correctly
+
+stages:
+  - name: Delete topic
+    request:
+      url: http://127.0.0.1:5000/topic/5b1a046f4d4012471383dac7
+      method: DELETE
+    response:
+      status_code: 204

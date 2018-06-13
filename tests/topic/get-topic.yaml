@@ -1,0 +1,11 @@
+test_name: Make sure server returns a topic correctly
+
+stages:
+  - name: Get topic
+    request:
+      url: http://127.0.0.1:5000/topic/5b1a046f4d4012471383dac7
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _id: 5b1a046f4d4012471383dac7

@@ -1,0 +1,151 @@
+test_name: One news can contains multiple topics
+
+stages:
+  - name: Create Topic 1
+    request:
+      url: http://127.0.0.1:5000/topic
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2d0
+        title: Pilkada 2018
+        tag: pilkada-2018
+        categories.latest: [5b19fa3d8ad8e937e17ba2e4, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e0]
+        categories.popular: [5b19fa3d8ad8e937e17ba2e0, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e4]
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2d0
+  - name: Create Topic 2
+    request:
+      url: http://127.0.0.1:5000/topic
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2d1
+        title: Pemilu
+        tag: pemilu
+        categories.latest: [5b19fa3d8ad8e937e17ba2e4, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e0]
+        categories.popular: [5b19fa3d8ad8e937e17ba2e0, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e4]
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2d1
+  - name: Create Topic 3
+    request:
+      url: http://127.0.0.1:5000/topic
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2d2
+        title: Politik
+        tag: politik
+        categories.latest: [5b19fa3d8ad8e937e17ba2e4, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e0]
+        categories.popular: [5b19fa3d8ad8e937e17ba2e0, 5b19fa3d8ad8e937e17ba2e2, 5b19fa3d8ad8e937e17ba2e4]
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2d2
+  - name: Create News 1
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2e0
+        link: https://kumparan.com/@kumparannews/pilkada-news-1
+        title: "Pilkada News 1"
+        content: "Content Pilkada News 1"
+        writer: Donny Ostrianto
+        editor: Jane Doe
+        reporter: John Doe
+        topics: [5b19fa3d8ad8e937e17ba2d0, 5b19fa3d8ad8e937e17ba2d1, 5b19fa3d8ad8e937e17ba2d2]
+        status: publish
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2e0
+  - name: Create News 2
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2e1
+        link: https://kumparan.com/@kumparannews/pilkada-news-2
+        title: "Pilkada News 2"
+        content: "Content Pilkada News 2"
+        writer: Donny Ostrianto
+        editor: Jane Doe
+        reporter: John Doe
+        topics: [5b19fa3d8ad8e937e17ba2d0, 5b19fa3d8ad8e937e17ba2d1, 5b19fa3d8ad8e937e17ba2d2]
+        status: draft
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2e1
+  - name: Create News 3
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2e2
+        link: https://kumparan.com/@kumparannews/pilkada-news-3
+        title: "Pilkada News 3"
+        content: "Content Pilkada News 3"
+        writer: Donny Ostrianto
+        editor: Jane Doe
+        reporter: John Doe
+        topics: [5b19fa3d8ad8e937e17ba2d0, 5b19fa3d8ad8e937e17ba2d1, 5b19fa3d8ad8e937e17ba2d2]
+        status: publish
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2e2
+  - name: Create News 4
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2e3
+        link: https://kumparan.com/@kumparannews/pilkada-news-4
+        title: "Pilkada News 4"
+        content: "Content Pilkada News 4"
+        writer: Donny Ostrianto
+        editor: Jane Doe
+        reporter: John Doe
+        topics: [5b19fa3d8ad8e937e17ba2d0, 5b19fa3d8ad8e937e17ba2d1, 5b19fa3d8ad8e937e17ba2d2]
+        status: deleted
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2e3
+  - name: Create News 5
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b19fa3d8ad8e937e17ba2e4
+        link: https://kumparan.com/@kumparannews/pilkada-news-5
+        title: "Pilkada News 5"
+        content: "Content Pilkada News 5"
+        writer: Donny Ostrianto
+        editor: Jane Doe
+        reporter: John Doe
+        topics: [5b19fa3d8ad8e937e17ba2d0, 5b19fa3d8ad8e937e17ba2d1, 5b19fa3d8ad8e937e17ba2d2]
+        status: publish
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b19fa3d8ad8e937e17ba2e4

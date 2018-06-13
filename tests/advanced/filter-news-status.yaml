@@ -1,0 +1,27 @@
+test_name: Filter by news status ("draft", "deleted", "publish")
+
+stages:
+  - name: Filter by news status Draft
+    request:
+      url: http://127.0.0.1:5000/news/?where=status=="draft"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 1
+  - name: Filter by news status Deleted
+    request:
+      url: http://127.0.0.1:5000/news/?where=status=="deleted"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 1
+  - name: Filter by news status Publish
+    request:
+      url: http://127.0.0.1:5000/news/?where=status=="publish"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 3

@@ -1,0 +1,11 @@
+test_name: Make sure server returns a news correctly
+
+stages:
+  - name: Get news
+    request:
+      url: http://127.0.0.1:5000/news/5b1f777d24b8726470525e7b
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _id: 5b1f777d24b8726470525e7b

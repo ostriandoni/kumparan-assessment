@@ -14,7 +14,8 @@ topic = {
         },
         'tag': {
             'type': 'string',
-            'required': True
+            'required': True,
+            'unique': True
         },
         'categories': {
             'type': 'dict',

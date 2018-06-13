@@ -1,0 +1,9 @@
+test_name: Make sure server delete a news correctly
+
+stages:
+  - name: Delete news
+    request:
+      url: http://127.0.0.1:5000/news/5b1f777d24b8726470525e7b
+      method: DELETE
+    response:
+      status_code: 204

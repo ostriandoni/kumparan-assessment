@@ -1,0 +1,23 @@
+test_name: Make sure server saves and returns a news correctly
+
+stages:
+  - name: Create news
+    request:
+      url: http://127.0.0.1:5000/news
+      method: POST
+      json:
+        _id: 5b1f777d24b8726470525e7b
+        link: https://kumparan.com/@kumparannews/ketum-mui-zakat-jangan-dikaitkan-dengan-pilkada
+        title: "Ketum MUI: Zakat Jangan Dikaitkan dengan Pilkada"
+        content: "Jelang hari raya Idul Fitri umat muslim yang mampu berkewajiban untuk mengeluarkan zakat. Sementara, kewajiban zakat ini terhitung dekat dengan penyelenggaraan Pilkada serentak pada 27 Juni mendatang. Hal ini menjadi sorotan oleh Majelis Ulama Indonesia (MUI)."
+        writer: Adhi Muhammad Daryono
+        editor: Ananda Teresia
+        reporter: Yuana Fatwalloh 
+        topics: [5b1a046f4d4012471383dac7]
+        status: publish
+      headers:
+        content-type: application/json
+    response:
+      status_code: 201
+      body:
+        _id: 5b1f777d24b8726470525e7b

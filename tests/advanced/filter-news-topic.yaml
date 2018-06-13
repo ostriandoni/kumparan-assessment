@@ -1,0 +1,27 @@
+test_name: Filter news by its topic
+
+stages:
+  - name: Filter by news topic Pemilu
+    request:
+      url: http://127.0.0.1:5000/topic/?where=tag=="pemilu"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 1
+  - name: Filter by news topic Pilkada 2018
+    request:
+      url: http://127.0.0.1:5000/topic/?where=tag=="pilkada-2018"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 1
+  - name: Filter by news topic Politik
+    request:
+      url: http://127.0.0.1:5000/topic/?where=tag=="politik"
+      method: GET
+    response:
+      status_code: 200
+      body:
+        _meta.total: 1
