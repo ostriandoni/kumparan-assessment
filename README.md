@@ -10,6 +10,11 @@ Try it out:
 $ curl -i https://kumparan-donny.herokuapp.com/news?pretty
 ```
 
+To connect using a driver via the standard MongoDB URI:
+```
+mongodb://donny:donny123@ds241658.mlab.com:41658/kumparan
+```
+
 ## Getting Started
 - If you want to run this app locally, create `.env` file on your own:
 ```
